@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/filming-location-finder/static/css/main.3dc702e4.css",
+    "main.js": "/filming-location-finder/static/js/main.783eb43c.js",
+    "static/js/787.6e0cb259.chunk.js": "/filming-location-finder/static/js/787.6e0cb259.chunk.js",
+    "static/media/popcorn.png": "/filming-location-finder/static/media/popcorn.57a1848e29052255134f.png",
+    "static/media/popular.png": "/filming-location-finder/static/media/popular.a7e5aeccc059d83f4c3d.png",
+    "static/media/history.png": "/filming-location-finder/static/media/history.47559c607995b9cac796.png",
+    "static/media/favourite.png": "/filming-location-finder/static/media/favourite.cb988e482288361646f8.png",
+    "static/media/github.png": "/filming-location-finder/static/media/github.05f6c17b8cd04c28456f.png",
+    "static/media/star.png": "/filming-location-finder/static/media/star.d0cbd94e0a4a62fc2bf4.png",
+    "static/media/tmdb.svg": "/filming-location-finder/static/media/tmdb.de1a664e8d0777ca4ddb2a5a298bcfb6.svg",
+    "index.html": "/filming-location-finder/index.html",
+    "main.3dc702e4.css.map": "/filming-location-finder/static/css/main.3dc702e4.css.map",
+    "main.783eb43c.js.map": "/filming-location-finder/static/js/main.783eb43c.js.map",
+    "787.6e0cb259.chunk.js.map": "/filming-location-finder/static/js/787.6e0cb259.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3dc702e4.css",
+    "static/js/main.783eb43c.js"
+  ]
+}

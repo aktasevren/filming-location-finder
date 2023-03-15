@@ -1,0 +1,10 @@
+
+
+## https://www.themoviedb.org/
+REACT_APP_TMDB_API = <YOUR_API_KEY>
+
+## https://imdb-api.com/
+REACT_APP_IMDBAPI_API = <YOUR_API_KEY>
+
+## https://www.myapifilms.com/
+REACT_APP_MYAPIFILMS_API = <YOUR_API_KEY>
