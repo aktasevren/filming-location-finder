@@ -16,22 +16,23 @@ import {
 
 import axios from "axios";
 
-
+//HomePage Popular Movies //
 export const getPopularMovies = () => (dispatch) => {
   axios
     .get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&page=1`
     )
     .then((response) =>
-
       dispatch({
         type: GET_POPULAR_MOVIES,
         payload: response.data.results,
       })
     )
     .catch((err) => console.log(err));
-
 };
+//HomePage Popular Movies //
+
+//HomePage Top Rated Movies //
 export const getTopratedMovies = () => (dispatch) => {
   axios
     .get(
@@ -45,7 +46,9 @@ export const getTopratedMovies = () => (dispatch) => {
     )
     .catch((err) => console.log(err));
 };
+//HomePage Top Rated Movies //
 
+//HomePage Upcoming Movies //
 export const getUpcomingMovies = () => (dispatch) => {
   axios
     .get(
@@ -59,12 +62,10 @@ export const getUpcomingMovies = () => (dispatch) => {
     )
     .catch((err) => console.log(err));
 };
+//HomePage Upcoming Movies //
 
+//Movies found as a result of searched value //
 export const fetchMovies = (movieValue) => (dispatch) => {
-  var today = new Date();
-  var requestTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
-
-  console.log("Searching Value : " + movieValue)
   axios
     .get(
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&query=${movieValue}&page=1&include_adult=false`
@@ -75,23 +76,27 @@ export const fetchMovies = (movieValue) => (dispatch) => {
         payload: response.data.results,
       })
     )
-  var responseTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + ":" + today.getMilliseconds();
 };
+//Movies found as a result of searched value //
 
+//Searched Value //
 export const fetchValue = (value) => (dispatch) => {
-
   dispatch({
     type: FETCH_VALUE,
     payload: value,
   });
 };
+//Searched Value //
 
+//Add Movies to Favourite List //
 export const favouriteMovies = () => (dispatch) => {
   dispatch({
     type: FAVOURITE_MOVIES,
   });
 };
+//Add Movies to Favourite List //
 
+//Add Movies to Favourite List //
 export const addFavourite = (id) => async (dispatch) => {
   var controlFav = JSON.parse(localStorage.getItem("controlFav"));
   if (controlFav === null) controlFav = [];
@@ -113,7 +118,9 @@ export const addFavourite = (id) => async (dispatch) => {
     });
   }
 };
+//Add Movies to Favourite List //
 
+//Delete Movies to Favourite List //
 export const deleteFromFavouriteMovies = (id) => (dispatch) => {
   var controlFav = JSON.parse(localStorage.getItem("controlFav"));
   controlFav = controlFav.filter((movie) => movie !== id);
@@ -121,10 +128,8 @@ export const deleteFromFavouriteMovies = (id) => (dispatch) => {
   if (controlFav.length === 0) {
     localStorage.removeItem("controlFav");
   }
-
   var favMovies = JSON.parse(localStorage.getItem("favMovies"));
   favMovies = favMovies.filter((movie) => movie.id !== id);
-
   localStorage.setItem("favMovies", JSON.stringify(favMovies));
   if (favMovies.length === 0) {
     localStorage.removeItem("favMovies");
@@ -134,8 +139,10 @@ export const deleteFromFavouriteMovies = (id) => (dispatch) => {
     payload: id,
   });
 };
+//Delete Movies to Favourite List //
 
-export const selectedMovie = (id, poster, title) => (dispatch) => {
+//The movie whose locations you want to see //
+export const selectedMovie = (id) => (dispatch) => {
   axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
@@ -145,10 +152,7 @@ export const selectedMovie = (id, poster, title) => (dispatch) => {
         type: SELECTED_MOVIE,
         payload: response.data,
       })
-    )
-
-    ;
-
+    );
   axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
@@ -165,14 +169,17 @@ export const selectedMovie = (id, poster, title) => (dispatch) => {
       })
     )
 };
+//The movie whose locations you want to see //
 
+//Recenty Searched Movies //
 export const recentlySearchedMovies = () => (dispatch) => {
   dispatch({
     type: RECENTLY_SEARCHED_MOVIES,
   });
 };
+//Recenty Searched Movies //
 
-
+//Loading //
 export const loadingTrue = () => (dispatch) => {
   dispatch({
     type: LOADING_TRUE,
@@ -184,3 +191,4 @@ export const loadingFalse = () => (dispatch) => {
     type: LOADING_FALSE,
   });
 };
+//Loading //

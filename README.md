@@ -1,4 +1,4 @@
-### [You can try the demo here](http://filminglocationfinder.evrenaktas.xyz/)
+### [You can try the demo here](https://filming-location-finder.vercel.app/)
 ----------
 With this application, you can see where the movies were filmed on the map.
 
@@ -28,6 +28,3 @@ npm start
 ### Built with
 
 - React - - Redux
-- Leaflet
-- MongoDB
-- Backend Server with Railway.app

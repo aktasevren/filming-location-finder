@@ -22,8 +22,8 @@ const initialState = {
   favoMovies: [],
   selectedMovieInfo: [],
   filmingLocs: [],
-  image:"",
-  loading:false,
+  image: "",
+  loading: false,
 };
 
 const MovieReducer = (state = initialState, action) => {
@@ -60,7 +60,7 @@ const MovieReducer = (state = initialState, action) => {
         showMovie: "FM",
         typesTitle: "",
         fetchResult: action.payload,
-        loading:false,
+        loading: false,
       };
     case FAVOURITE_MOVIES:
       return {
@@ -84,7 +84,7 @@ const MovieReducer = (state = initialState, action) => {
         showMovie: "SM",
         selectedMovieInfo: action.payload,
         typesTitle: "",
-        loading:false
+        loading: false
       };
     case RECENTLY_SEARCHED_MOVIES:
       return {
@@ -103,10 +103,10 @@ const MovieReducer = (state = initialState, action) => {
         loading: false,
       };
     case LOADING_TRUE:
-        return {
-          ...state,
-          loading: true,
-        };
+      return {
+        ...state,
+        loading: true,
+      };
     default:
       return state;
   }
