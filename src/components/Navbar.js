@@ -14,7 +14,7 @@ export default function Nav() {
           <b style={{ fontSize: 24, color: "black" }}>Filming Location Finder</b>
         </NavbarBrand>
         <div>
-          <a href="https://github.com/aktasevren" target="_blank" >
+          <a href="https://github.com/aktasevren/filming-location-finder" target="_blank" >
             <img src={githubLogo} alt="" width="40" height="40" className="me-3" />
           </a>
           <a href="https://www.themoviedb.org/" target="_blank" >
