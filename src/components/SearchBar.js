@@ -22,6 +22,8 @@ export default function SearchBar() {
     } else {
       dispatch(loadingTrue());
       dispatch(fetchMovies(fetchMovieValue));
+      // CONSOLE OUTPUT --
+      console.log("SearchBar.js / onSubmit + "+fetchMovieValue)
     }
   };
 
