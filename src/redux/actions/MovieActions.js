@@ -165,10 +165,11 @@ export const selectedMovie = (id) => (dispatch) => {
       )
     )
     .then((response) =>
-      dispatch({
-        type: GET_LOCATIONS,
-        payload: response.data.data.movies[0].filmingLocations,
-      })
+    console.log(response.data)
+      // dispatch({
+      //   type: GET_LOCATIONS,
+      //   payload: response.data.data.movies[0].filmingLocations,
+      // })
     )
 };
 //The movie whose locations you want to see //
