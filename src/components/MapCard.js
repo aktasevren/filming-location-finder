@@ -32,30 +32,29 @@ export function MapCard() {
   }, [filmingLocs,]);
 
   const getCoordinates = async (loc) => {
-      console.log(loc.location)
-    // return axios
-    //   .get(
-    //     `https://api.geoapify.com/v1/geocode/search?text=${loc.location}&apiKey=a97d941d259f4b42912a28ac3d623d46`
-    //   )
-    //   .then((response) =>
-    //     setCoordinates(
-    //       (oldArray) => [
-    //         ...oldArray,
-    //         [
-    //           response.data.features[0].geometry.coordinates[0],
-    //           response.data.features[0].geometry.coordinates[1],
-    //           loc.remarks,
-    //           loc.location
-    //         ],
-    //       ],
-    //       coordinatesList.push([
-    //         response.data.features[0].geometry.coordinates[0],
-    //         response.data.features[0].geometry.coordinates[1],
-    //         loc.remarks,
-    //         loc.location
-    //       ])
-    //     )
-      // )
+    return axios
+      .get(
+        `https://api.geoapify.com/v1/geocode/search?text=${loc.location}&apiKey=a97d941d259f4b42912a28ac3d623d46`
+      )
+      .then((response) =>
+        setCoordinates(
+          (oldArray) => [
+            ...oldArray,
+            [
+              response.data.features[0].geometry.coordinates[0],
+              response.data.features[0].geometry.coordinates[1],
+              loc.remarks,
+              loc.location
+            ],
+          ],
+          coordinatesList.push([
+            response.data.features[0].geometry.coordinates[0],
+            response.data.features[0].geometry.coordinates[1],
+            loc.remarks,
+            loc.location
+          ])
+        )
+      )
 
 
 
@@ -87,13 +86,6 @@ export function MapCard() {
     return withCoords;
   };
 
-  // const getTooltip = d => `
-  //     <div style="text-align: center">
-  //       <div><b>Location : ${d.location}</b></div>
-        
-  //       <div><b>Remark :${d.remark}</b></div>
-  //     </div>
-  //   `;
 
 
 
@@ -112,13 +104,7 @@ export function MapCard() {
               <Marker
                 key={index}
                 position={[poi[1], poi[0]]}
-                icon={
-                  new Icon({
-                    iconUrl: movieInfo.image,
-                    iconSize: [37.5, 61.5],
-                    iconAnchor: [12, 41],
-                  })
-                }
+ 
               >
                 {poi[2] == 'undefined' ? <Popup>{poi[2] + ' / ' + poi[3]}</Popup> : <Popup>{poi[3]}</Popup>}
               </Marker>

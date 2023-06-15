@@ -5,7 +5,12 @@ import alertify from "alertifyjs";
 
 import { Row, Col, Container, Button, Form, InputGroup } from "react-bootstrap";
 
+
+
+
 export default function SearchBar() {
+
+
 
   const dispatch = useDispatch();
   const fetchMovieValue = useSelector((state) => state.MovieReducer.fetchValue);
@@ -14,7 +19,10 @@ export default function SearchBar() {
     dispatch(fetchValue(e.target.value));
   };
 
+
   const onSubmit = (e) => {
+    console.log(e.target.value)
+
     e.preventDefault();
     if (fetchMovieValue === undefined || null) {
       alertify.alert("Error", "Please type something!", function () {
@@ -23,22 +31,31 @@ export default function SearchBar() {
       dispatch(loadingTrue());
       dispatch(fetchMovies(fetchMovieValue));
       // CONSOLE OUTPUT --
-      console.log("SearchBar.js / onSubmit + "+fetchMovieValue)
+      console.log("SearchBar.js / onSubmit + " + fetchMovieValue)
     }
   };
 
   return (
-    <Container>
-      <Row  className="d-flex justify-content-center">
-        <Col lg={8}>
-          <InputGroup style={{height:48}} className="my-5" onChange={onChange}>
-            <Form.Control placeholder="Type a movie name ..." />
-            <Button onClick={onSubmit} className="btn btn-dark">
-               <b>SEARCH</b> 
-            </Button>
-          </InputGroup>
-        </Col>
-      </Row>
-    </Container>
+    <div>
+      {/* <Container>
+        <Row className="d-flex justify-content-center">
+          <Col lg={8}>
+            <InputGroup style={{ height: 48 }} className="my-5" onChange={onChange}>
+              <Form.Control placeholder="Type a movie name ..." />
+              <Button onClick={onSubmit} className="btn btn-dark">
+                <b>SEARCH</b>
+              </Button>
+            </InputGroup>
+          </Col>
+        </Row>
+      </Container> */}
+
+
+<form class="search" action="">
+  <input type="search" placeholder="Search here..." required onChange={onChange}></input>
+  <button type="submit" onClick={onSubmit}>Search</button>
+</form>   
+
+    </div>
   );
 }

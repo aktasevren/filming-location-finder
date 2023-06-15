@@ -23,39 +23,11 @@ function App() {
   })
 
    return (
-  //   // style={{backgroundImage: `url("{movieInfo.image}")`}}
-
-  //   <div>
-  // {showMovie === "SM" ? (
-  // <div style={{ 
-  //   backgroundImage: `url("https://via.placeholder.com/500")` 
-  // }}>
-  //     <Navbar />
-  //     <SearchBar />
-  //     <MovieTypes />
-  //     {loading ? <div className="d-flex justify-content-center"><SpinnerRoundFilled size={100} color='red'/></div> : <div></div>}
-  //     {/* Homepage Movies */}
-  //     <TMDBMovieCard />
-  //     {/* Searched Movie */}
-  //     <FetchMovies />
-  //     <MovieCard />
-  //     {/* Leaflet Map */}
-  //     {/* <MapCard /> */}
-  //     {/* Favourite Movies */}
-  //     <FavouriteCard />
-  //     {/* Recently Searched Movie */}
-  //     <SearchedMovies /> 
-  //   </div> ) : (<div></div>)
     
   <div>
     {showMovie === "SM" ? (  
-  //      <div style={{ 
-  //    backgroundImage: `url("https://image.tmdb.org/t/p/original${movieInfo.poster_path}")`
-  //    ,backgroundSize:'cover'
-     
-  //  }}>
   <div>
-       <Navbar />
+       {/* <Navbar /> */}
        {/* Homepage Movies */}
        {/* Searched Movie */}
        <MovieCard />
@@ -66,20 +38,20 @@ function App() {
      </div>
      ) : (<div>
 
-      <Navbar />
+      {/* <Navbar /> */}
        <SearchBar />
-       <MovieTypes />
+       {/* <MovieTypes /> */}
        {loading ? <div className="d-flex justify-content-center"><SpinnerRoundFilled size={100} color='red'/></div> : <div></div>}
        {/* Homepage Movies */}
-       <TMDBMovieCard />
+       {/* <TMDBMovieCard /> */}
        {/* Searched Movie */}
        <FetchMovies />
        {/* Leaflet Map */}
        {/* <MapCard /> */}
        {/* Favourite Movies */}
-       <FavouriteCard />
+       {/* <FavouriteCard /> */}
        {/* Recently Searched Movie */}
-       <SearchedMovies /> 
+       {/* <SearchedMovies />  */}
      </div>)}
   </div>
    )
