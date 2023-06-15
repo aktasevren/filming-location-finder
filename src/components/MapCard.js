@@ -59,7 +59,7 @@ export function MapCard() {
     <div className="container" >
       <div>
 
-        <MapContainer center={[55, 60]} zoom={2} scrollWheelZoom={true}>
+        <MapContainer center={[55, 60]} zoom={2} minZoom={2}  maxZoom={6} scrollWheelZoom={true}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
