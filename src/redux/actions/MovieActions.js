@@ -159,7 +159,7 @@ export const selectedMovie = (id) => (dispatch) => {
     )
     .then((response) =>
       axios.get(
-        `https://www.myapifilms.com/imdb/idIMDB?idIMDB=${response.data.imdb_id}&token=${process.env.REACT_APP_MYAPIFILMS_API}&format=json&language=en-us&aka=1&filmingLocations=2`
+        `https://www.myapifilms.com/imdb/idIMDB?idIMDB=${response.data.imdb_id}&token=${process.env.REACT_APP_MYAPIFILMS_API}&format=json&language=en-us&aka=1&filmingLocations=1`
       )
     )
     .then((response) =>
