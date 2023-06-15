@@ -148,6 +148,8 @@ export const selectedMovie = (id) => (dispatch) => {
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
     )
     .then((response) =>
+      // console.log(response.data)
+      
       dispatch({
         type: SELECTED_MOVIE,
         payload: response.data,

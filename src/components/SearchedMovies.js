@@ -30,23 +30,6 @@ export default function SearchedMovies() {
                   );
                 }}
               />
-              {controlFav !== null && controlFav.includes(movie.movieId) ? (
-                <FcLike
-                  className="falike"
-                  size={32}
-                  onClick={() => {
-                    dispatch(deleteFromFavouriteMovies(movie.movieId));
-                  }}
-                />
-              ) : (
-                <FcLikePlaceholder
-                  className="falike"
-                  size={32}
-                  onClick={() => {
-                    dispatch(addFavourite(movie.movieId));
-                  }}
-                />
-              )}
               <div className="card-body">
                 <h5 className="card-title text-center">{movie.movieTitle}</h5>
               </div>

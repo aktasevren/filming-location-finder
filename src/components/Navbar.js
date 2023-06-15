@@ -15,10 +15,10 @@ export default function Nav() {
         </NavbarBrand>
         <div>
           <a href="https://github.com/aktasevren/filming-location-finder" target="_blank" >
-            <img src={githubLogo} alt="" width="40" height="40" className="me-3" />
+            <img src={githubLogo} alt="" width="25" height="25" className="me-3" />
           </a>
           <a href="https://www.themoviedb.org/" target="_blank" >
-            <img src={tmdbLogo} alt="" width="40" height="40" />
+            <img src={tmdbLogo} alt="" width="25" height="25" />
           </a>
         </div>
       </Container>

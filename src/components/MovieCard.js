@@ -10,39 +10,23 @@ export default function MovieCard() {
   ]);
 
   return (
-
+    // style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${movieInfo.poster_path}")`}}
     <Container >
       {showMovie === "SM" ? (
         <Row >
           <Col lg={7} className="m-3">
             <div>
-              <b>Title : </b>
-              {movieInfo.title}
+              <b>{movieInfo.tagline}</b>
             </div>
-            <br />
-            <div>
-              <b>Release Date : </b>
-              {movieInfo.release_date}
-            </div>
-            <br />
-            <div>
-              <b>Runtime : </b>
-              {movieInfo.runtime}
-            </div>
-            <br />
-            {/* <br />
-            <div>
-              <b>Genres : </b>
-              {movieInfo.genres}
-            </div>
-            <br /> */}
           </Col>
-          <div >          <MapCard /> </div>
+          <div >
+            <MapCard />
+          </div>
 
         </Row>
 
-      ) : (""
-        // <MapCard /> 
+      ) : (
+        <MapCard />
 
       )}
     </Container>

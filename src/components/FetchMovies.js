@@ -27,10 +27,10 @@ export default function FetchMovies() {
       <Row >
         {/*  */}
         {fetchResult.length > 1 ? <h4 className="text-center mb-5"><b>{`
-        ${fetchResult.length} results found for ${fetchValue} movie`}</b></h4> : <div></div>}
+        ${fetchResult.length} results found for ${fetchValue}`}</b></h4> : <div></div>}
         {showMovie === "FM" ? (
           fetchResult.map((movie) => (
-            <Col lg={2} key={movie.id} >
+            <Col md={4} xl={3} key={movie.id} >
               <Card className="mb-2"  border="dark" style={{ minHeight: '420px' }}>
                 <Card.Img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -40,23 +40,6 @@ export default function FetchMovies() {
                     );
                   }}
                 />
-                {controlFav !== null && controlFav.includes(movie.id) ? (
-                  <FcLike
-                    className="falike"
-                    size={40}
-                    onClick={() => {
-                      dispatch(deleteFromFavouriteMovies(movie.id));
-                    }}
-                  />
-                ) : (
-                  <FcLikePlaceholder
-                    className="falike"
-                    size={40}
-                    onClick={() => {
-                      dispatch(addFavourite(movie.id));
-                    }}
-                  />
-                )}
                 <Card.Body>
                   <Card.Title className="text-center">{movie.title}</Card.Title>
                 </Card.Body>
