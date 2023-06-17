@@ -10,6 +10,7 @@
     "alertifyjs": "^1.13.1",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "crawler": "^1.4.0",
     "dotenv": "^16.0.1",
     "firebase": "^9.9.3",
     "leaflet": "^1.8.0",
@@ -24,6 +25,8 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "scrape-html-web": "^2.3.7",
+    "scrape-it": "^6.0.1",
     "spinners-react": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
@@ -34,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    },
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

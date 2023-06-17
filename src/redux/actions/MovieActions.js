@@ -15,6 +15,7 @@ import {
 } from "./ActionTypes";
 
 import axios from "axios";
+import scrapeHtmlWeb from "scrape-html-web";
 
 //HomePage Popular Movies //
 export const getPopularMovies = () => (dispatch) => {
@@ -149,7 +150,7 @@ export const selectedMovie = (id) => (dispatch) => {
     )
     .then((response) =>
       // console.log(response.data)
-      
+
       dispatch({
         type: SELECTED_MOVIE,
         payload: response.data,
@@ -160,18 +161,55 @@ export const selectedMovie = (id) => (dispatch) => {
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
     )
     .then((response) =>
-      axios.get(
-        `https://www.myapifilms.com/imdb/idIMDB?idIMDB=${response.data.imdb_id}&token=${process.env.REACT_APP_MYAPIFILMS_API}&format=json&language=en-us&aka=1&filmingLocations=1`
-      )
-    )
-    .then((response) =>
-      dispatch({
-        type: GET_LOCATIONS,
-        payload: response.data.data.movies[0].filmingLocations,
+
+      {
+        // const options = {
+        //   url: "https://nodejs.org/en/blog/",
+        //   mainSelector: ".blog-index",
+        //   childrenSelector: [
+        //     { key: "date", selector: "time", type: "text" },
+        //     // by default, the first option that is taken into consideration is att
+        //     { key: "version", selector: "a", type: "text" },
+        //     { key: "link", selector: "a", attr: "href" },
+        //   ],
+        // };
+        
+        // (async () => {
+        //   const data = await scrapeHtmlWeb(options);
+        //   console.log(data);
+        // })();
+
+        console.log(`https://www.imdb.com/title/${response.data.imdb_id}/locations/?ref_=tt_dt_loc`)
+        const options = {
+          url: `https://www.imdb.com/title/${response.data.imdb_id}/locations/?ref_=tt_dt_loc`,
+          mainSelector: ".sc-a6e3f2fd-0",
+          childrenSelector: [
+            { key: "yer", selector: "a", type: "text" },
+            // by default, the first option that is taken into consideration is att
+            { key: "aciklama", selector: "p", type: "text" },
+          ],
+        };
+        
+        (async () => {
+          const data = await scrapeHtmlWeb(options);
+          console.log(data);
+        })();
       })
-    )
-    .catch((err)=>console.log(err))
+
+
+
+      
 };
+
+
+
+
+
+
+
+
+
+
 //The movie whose locations you want to see //
 
 //Recenty Searched Movies //
