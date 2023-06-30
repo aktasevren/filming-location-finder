@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+// import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import {
-  addFavourite,
+  // addFavourite,
   selectedMovie,
-  deleteFromFavouriteMovies,
+  // deleteFromFavouriteMovies,
 } from "../redux/actions/MovieActions";
 
 
@@ -12,7 +12,7 @@ export default function SearchedMovies() {
   const dispatch = useDispatch();
   const showMovie = useSelector((state) => state.MovieReducer.showMovie);
   const [movies, setMovies] = useState([]);
-  const controlFav = JSON.parse(localStorage.getItem("controlFav"));
+  // const controlFav = JSON.parse(localStorage.getItem("controlFav"));
 
   return (
     <div className="container card-group mt-3" >

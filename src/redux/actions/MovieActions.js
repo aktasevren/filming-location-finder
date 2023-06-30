@@ -16,9 +16,6 @@ import {
 
 import axios from "axios";
 
-
-
-
 //HomePage Popular Movies //
 export const getPopularMovies = () => (dispatch) => {
   axios
@@ -169,7 +166,7 @@ export const selectedMovie = (id) => async (dispatch) => {
       // console.log(response.data.imdb_id)
 
 
-      axios.get(`https://imdb-server-ljf3.onrender.com/imdbid/${response.data.imdb_id}`).then((response) => 
+      axios.get(`https://imdb-server-ljf3.onrender.com/imdbid/${response.data.imdb_id}`).then((response) =>
       (
         dispatch({
           type: GET_LOCATIONS,

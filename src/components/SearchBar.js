@@ -2,18 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, fetchValue, loadingTrue } from "../redux/actions/MovieActions";
 import alertify from "alertifyjs";
-
 import { Row, Col, Container, Button, Form, InputGroup } from "react-bootstrap";
 
 export default function SearchBar() {
-
   const dispatch = useDispatch();
   const fetchMovieValue = useSelector((state) => state.MovieReducer.fetchValue);
-
   const onChange = (e) => {
     dispatch(fetchValue(e.target.value));
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
     if (fetchMovieValue === undefined || null) {

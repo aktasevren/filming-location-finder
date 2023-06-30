@@ -18,7 +18,6 @@ export default function FetchMovies() {
   useEffect(() => { }, [fetchResult]);
 
   return (
-
     <Container>
       <Row >
         {/*  */}
