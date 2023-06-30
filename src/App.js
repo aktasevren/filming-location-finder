@@ -9,8 +9,7 @@ import { useEffect } from "react";
 import { SpinnerRoundFilled } from 'spinners-react';
 
 function App() {
-  const [movieInfo, loading, showMovie] = useSelector((state) => [
-    state.MovieReducer.selectedMovieInfo,
+  const [loading, showMovie] = useSelector((state) => [
     state.MovieReducer.loading,
     state.MovieReducer.showMovie,
 

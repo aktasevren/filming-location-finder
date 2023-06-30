@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import "../index.css";
 import {
   selectedMovie,
-  addFavourite,
-  deleteFromFavouriteMovies,
 } from "../redux/actions/MovieActions";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 export default function FetchMovies() {
   const dispatch = useDispatch();
-  const controlFav = JSON.parse(localStorage.getItem("controlFav"));
 
   const [fetchResult, showMovie, fetchValue] = useSelector((state) => [
     state.MovieReducer.fetchResult,

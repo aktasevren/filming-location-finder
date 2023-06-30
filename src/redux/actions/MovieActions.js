@@ -9,13 +9,15 @@ import {
   FAVOURITE_MOVIES,
   SELECTED_MOVIE,
   RECENTLY_SEARCHED_MOVIES,
-  GET_LOCATIONS,
   LOADING_FALSE,
+  GET_LOCATIONS,
   LOADING_TRUE
 } from "./ActionTypes";
 
 import axios from "axios";
-import scrapeHtmlWeb from "scrape-html-web";
+
+
+
 
 //HomePage Popular Movies //
 export const getPopularMovies = () => (dispatch) => {
@@ -143,64 +145,62 @@ export const deleteFromFavouriteMovies = (id) => (dispatch) => {
 //Delete Movies to Favourite List //
 
 //The movie whose locations you want to see //
-export const selectedMovie = (id) => (dispatch) => {
+export const selectedMovie = (id) => async (dispatch) => {
+
+
   axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
     )
     .then((response) =>
-      // console.log(response.data)
+      // console.log(response.data.imdb_id)
 
       dispatch({
         type: SELECTED_MOVIE,
         payload: response.data,
       })
     );
+
   axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
     )
     .then((response) =>
+      // console.log(response.data.imdb_id)
 
-      {
-        // const options = {
-        //   url: "https://nodejs.org/en/blog/",
-        //   mainSelector: ".blog-index",
-        //   childrenSelector: [
-        //     { key: "date", selector: "time", type: "text" },
-        //     // by default, the first option that is taken into consideration is att
-        //     { key: "version", selector: "a", type: "text" },
-        //     { key: "link", selector: "a", attr: "href" },
-        //   ],
-        // };
-        
-        // (async () => {
-        //   const data = await scrapeHtmlWeb(options);
-        //   console.log(data);
-        // })();
 
-        console.log(`https://www.imdb.com/title/${response.data.imdb_id}/locations/?ref_=tt_dt_loc`)
-        const options = {
-          url: `https://www.imdb.com/title/${response.data.imdb_id}/locations/?ref_=tt_dt_loc`,
-          mainSelector: ".sc-a6e3f2fd-0",
-          childrenSelector: [
-            { key: "yer", selector: "a", type: "text" },
-            // by default, the first option that is taken into consideration is att
-            { key: "aciklama", selector: "p", type: "text" },
-          ],
-        };
-        
-        (async () => {
-          const data = await scrapeHtmlWeb(options);
-          console.log(data);
-        })();
-      })
+      axios.get(`https://imdb-server-ljf3.onrender.com/imdbid/${response.data.imdb_id}`).then((response) => 
+      (
+        dispatch({
+          type: GET_LOCATIONS,
+          payload: response.data,
+        })
+      )
+      )
+    );
 
 
 
-      
 };
 
+export const getLocs = (id) => async (dispatch) => {
+
+
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+    )
+    .then((response) =>
+      // console.log(response.data.imdb_id)
+
+      dispatch({
+        type: SELECTED_MOVIE,
+        payload: response.data,
+      })
+    );
+
+
+};
 
 
 
