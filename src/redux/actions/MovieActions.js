@@ -166,8 +166,8 @@ export const selectedMovie = (id) => async (dispatch) => {
       // console.log(response.data.imdb_id)
 
 
-      // axios.get(`https://imdb-server-ljf3.onrender.com/imdbid/${response.data.imdb_id}`).then((response) =>
-      axios.get(`http://localhost:3000/imdbid/${response.data.imdb_id}`).then((response) =>
+      axios.get(`https://imdb-server-ljf3.onrender.com/imdbid/${response.data.imdb_id}`).then((response) =>
+      // axios.get(`http://localhost:3000/imdbid/${response.data.imdb_id}`).then((response) =>
       (
         dispatch({
           type: GET_LOCATIONS,
