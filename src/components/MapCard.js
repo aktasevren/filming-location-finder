@@ -17,13 +17,17 @@ export function MapCard() {
 
   useEffect(() => {
     getPlacesWithCoords(filmingLocs);
+    console.log(filmingLocs)
   }, [filmingLocs,]);
+
+  
 
   const getCoordinates = async (loc) => {
     return axios
       .get(
         `https://api.geoapify.com/v1/geocode/search?text=${loc}&apiKey=a97d941d259f4b42912a28ac3d623d46`
       )
+      
       .then((response) =>
         setCoordinates(
           (oldArray) => [
@@ -32,14 +36,14 @@ export function MapCard() {
               response.data.features[0].geometry.coordinates[0],
               response.data.features[0].geometry.coordinates[1],
               // loc.remarks,
-              loc.location
+              loc
             ],
           ],
           coordinatesList.push([
             response.data.features[0].geometry.coordinates[0],
             response.data.features[0].geometry.coordinates[1],
             // loc.remarks,
-            loc.location
+            loc
           ])
         )
       )
@@ -77,7 +81,7 @@ export function MapCard() {
                   })
                 }
               >
-                {poi[2] === 'undefined' ? <Popup>{poi[2] + ' / ' + poi[3]}</Popup> : <Popup>{poi[3]}</Popup>}
+                {poi[2] === 'undefined' ? <Popup>{poi[2] + ' / ' + poi[3]}</Popup> : <Popup>{poi[2]}</Popup>}
               </Marker>
             ))}
         </MapContainer>
